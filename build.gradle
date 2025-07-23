@@ -46,6 +46,8 @@ dependencies {
 
 	// Your internal module
 	implementation 'com.example:uberentityservice:0.0.4-SNAPSHOT'
+	implementation('com.squareup.retrofit2:retrofit:2.4.0')
+	implementation('com.squareup.retrofit2:converter-gson:2.4.0')
 
 	// Eureka client
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
