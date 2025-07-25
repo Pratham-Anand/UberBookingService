@@ -27,7 +27,7 @@ public class BookingController {
 
 //    @PatchMapping("/{bookingId}")
     @PostMapping("/{bookingId}")       //client socket i.e driver will be sending the data to this so did post mapping,
-    public ResponseEntity<UpdateBookingResponseDto>updateBooking(@RequestBody UpdateBookingRequestDto requestDto , @PathVariable long bookingId){
+    public ResponseEntity<UpdateBookingResponseDto>updateBooking(@RequestBody UpdateBookingRequestDto requestDto , @PathVariable("bookingId") long bookingId){
         return new ResponseEntity<>(bookingService.updateBooking(requestDto,bookingId),HttpStatus.OK);
 
     }

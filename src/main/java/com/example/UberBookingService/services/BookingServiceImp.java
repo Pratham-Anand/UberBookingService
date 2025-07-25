@@ -147,12 +147,27 @@ public class BookingServiceImp  implements BookingService{
         bookingRepository.updateBookingStatusAndDriverById(bookingId,BookingStatus.SCHEDULED,driver.get());  //objects are being sent instead of the table values.
         // TODO: driverRepository.update -> make it unavailable
         Optional<Booking> booking=bookingRepository.findById(bookingId);
+        System.out.println("Status Updated successfully");
 
-        return UpdateBookingResponseDto.builder()
-                .bookingId(bookingId)
-                .status(booking.get().getBookingstatus())
-                .driver(Optional.ofNullable(booking.get().getDriver()))
+        Driver driverEntity = booking.get().getDriver();
+
+        DriverDto driverDto = DriverDto.builder()
+                .id(driverEntity.getId())
+                .name(driverEntity.getName())
+                .licenseNumber(driverEntity.getLicenseNumber())
                 .build();
+
+              return  UpdateBookingResponseDto.builder()
+                .bookingId(booking.get().getId())
+                .status(booking.get().getBookingstatus())
+                .driver(driverDto)
+                .build();
+
+//        return UpdateBookingResponseDto.builder()
+//                .bookingId(bookingId)
+//                .status(booking.get().getBookingstatus())
+//                .driver(Optional.ofNullable(booking.get().getDriver()))
+//                .build();
     }
 
     }

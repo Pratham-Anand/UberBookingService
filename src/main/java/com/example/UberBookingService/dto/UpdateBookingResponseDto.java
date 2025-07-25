@@ -11,13 +11,13 @@ import java.util.Optional;
 @Getter
 @Setter
 @Builder
-
 @AllArgsConstructor
 @NoArgsConstructor
 public class UpdateBookingResponseDto {
 
     private BookingStatus status;
     private Long bookingId;
-    private Optional<Driver> driver;
+    private DriverDto driver;  // ✅ replace entity with flat DTO
+
 
 }

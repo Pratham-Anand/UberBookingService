@@ -33,7 +33,7 @@ public class RetrofitConfig {
 
     @Bean
     public UberSocketApi uberSocketApi() {
-        String serviceUrl = getServiceUrl("UBERSOCKETSERVER");
+        String serviceUrl = getServiceUrl("UberSocketServer");
         System.out.println("Service url for socket" + serviceUrl);
 
         return new Retrofit.Builder()
